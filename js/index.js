@@ -39,18 +39,36 @@ const siteContent = {
 
 //header navigation links
 
-// let navi = document.getElementsByTagName("a");
-// Array.from(navi);
-// for (let i = 0; i < navi.length;i++){
-//   navi[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
-//   navi[i].style.color = "green";
-// }
+// let navi = document.getElementsByTagName("a"); //html collection
+// Array.from(navi); // set to array
+
+// FINAL STUFF
+let preLink = document.createElement('a');
+preLink.setAttribute('href','#');
+preLink.textContent = "Home";
+preLink.style.color = "green";
+
+let postLink = document.createElement('a');
+postLink.setAttribute('href','#');
+postLink.textContent = "Pricing";
+postLink.style.color = "green";
+//
+//let navi = document.querySelectorAll('a');
+let navBar = document.getElementsByTagName('nav')[0];
+
+let navAnchs = Array.from(navBar.getElementsByTagName('a'));
+
+for (let i = 0; i < navAnchs.length;i++){
+  navAnchs[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
+  navAnchs[i].style.color = "green";
+}
+
+navBar.prepend(preLink);
+navBar.appendChild(postLink);
 
 
 
 
-// let preLink = document.createElement('a');
-// navi.appendChild(preLink);
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
@@ -125,9 +143,7 @@ conn.innerHTML = "<h4>"+ siteContent["contact"]["contact-h4"] + "</h4>" +
 
 //#endregion Contact
 
-
+//FOOTER
 let foot = document.body.getElementsByTagName("footer");
 foot     = foot[0];
 foot.innerHTML = "<p>"+ siteContent["footer"]["copyright"]+ "</p>";
-
-console.log(foot);
