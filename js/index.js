@@ -9,7 +9,7 @@ const siteContent = {
     "img-src": "img/logo.png"
   },
   "cta": {
-    "h1": "DOM Is Awesome",
+    "h1": "DOM </br>Is </br> Awesome",
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
@@ -28,7 +28,7 @@ const siteContent = {
   },
   "contact": {
     "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
+    "address" : '123 Way 456 Street </br> Somewhere, USA',
     "phone" : "1 (888) 888-8888",
     "email" : "sales@greatidea.io",
   },
@@ -38,14 +38,19 @@ const siteContent = {
 };
 
 //header navigation links
-let navi = document.getElementsByTagName("a");
-navi = Array.from(navi);
-navi[0].textContent = siteContent["nav"]["nav-item-1"];
-navi[1].textContent = siteContent["nav"]["nav-item-2"];
-navi[2].textContent = siteContent["nav"]["nav-item-3"];
-navi[3].textContent = siteContent["nav"]["nav-item-4"];
-navi[4].textContent = siteContent["nav"]["nav-item-5"];
-navi[5].textContent = siteContent["nav"]["nav-item-6"];
+
+// let navi = document.getElementsByTagName("a");
+// Array.from(navi);
+// for (let i = 0; i < navi.length;i++){
+//   navi[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
+//   navi[i].style.color = "green";
+// }
+
+
+
+
+// let preLink = document.createElement('a');
+// navi.appendChild(preLink);
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
@@ -55,7 +60,7 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 //#region CTA
 // CTA HEADER
 let heroText = document.getElementsByTagName("h1")[0];
-heroText.textContent = siteContent["cta"]["h1"];
+heroText.innerHTML = siteContent["cta"]["h1"];
 
 // CTA BUTTON
 let btn = document.getElementsByTagName("button")[0];
@@ -100,12 +105,29 @@ siteContent["main-content"]["product-content"] +
  siteContent["main-content"]["vision-content"] +
   "</p>";
 
-
+// MIDDLE CONTENT IMG
+let midImg = document.getElementById("middle-img");
+midImg.setAttribute('src', "/img/mid-page-accent.jpg");
 
 
 //#endregion TOP-CONTENT
 
 
+//#region CONTACT
+
+let conn = document.body.getElementsByClassName("contact");
+conn = conn[0];
+
+conn.innerHTML = "<h4>"+ siteContent["contact"]["contact-h4"] + "</h4>" +
+"<p>" + siteContent["contact"]["address"]+ "</p>"+
+"<p>" + siteContent["contact"]["phone"]+ "</p>"+
+"<p>" + siteContent["contact"]["email"]+ "</p>";
+
+//#endregion Contact
 
 
-console.log(aa[1]);
+let foot = document.body.getElementsByTagName("footer");
+foot     = foot[0];
+foot.innerHTML = "<p>"+ siteContent["footer"]["copyright"]+ "</p>";
+
+console.log(foot);
